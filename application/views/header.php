@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Site title</title>
+	<title>Tina's User Login Demo</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="">
@@ -13,6 +13,7 @@
 	<!-- css -->
 	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -31,13 +32,14 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?= base_url() ?>">Site title</a>
+                    <a class="navbar-brand" href="<?= base_url() ?>"><img src="<?= base_url('assets/img/logo.png')?>" style="height:70px;width:200px;"></img></a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
+                        <li><a href="<?= base_url('/') ?>">Home</a></li>
 						<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
-							<li><a href="<?= base_url('logout') ?>">Logout</a></li>
                             <li><a href="<?= base_url('history') ?>">History</a></li>
+                            <li><a href="<?= base_url('logout') ?>">Logout</a></li>
 						<?php else : ?>
 							<li><a href="<?= base_url('register') ?>">Register</a></li>
 							<li><a href="<?= base_url('login') ?>">Login</a></li>

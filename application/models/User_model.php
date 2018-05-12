@@ -128,10 +128,13 @@ class User_model extends CI_Model {
 	public function save_user_history($redis, $username, $action) {
 	    $history = $redis->get($username);
         if (!$history) {
-            $tmp = array(array('action' => $action, 'time' => date("Y-m-d H:i:s")));
+            $tmp = array(array('action' => $action, 'time' => date("Y-m-d H:i:s"),
+                'ip' => $_SERVER['REMOTE_ADDR'], 'user_agent' => $_SERVER['HTTP_USER_AGENT']));
         } else {
             $tmp = json_decode($history, true);
-            $tmp[] = array('action' => $action, 'time' => date("Y-m-d H:i:s"));
+            array_unshift($tmp,array('action' => $action, 'time' => date("Y-m-d H:i:s"),
+                'ip' => $_SERVER['REMOTE_ADDR'], 'user_agent' => $_SERVER['HTTP_USER_AGENT']) );
+//            $tmp[] = array('action' => $action, 'time' => date("Y-m-d H:i:s"));
         }
         $redis->set($username, json_encode($tmp));
     }

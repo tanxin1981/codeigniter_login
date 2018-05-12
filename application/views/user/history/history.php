@@ -2,19 +2,27 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="page-header">
-				<h1><?=$username?> action history</h1>
-                <table style="width:500px;">
+			<div class="container page-header">
+				<h1>User '<?=$username?>' activities:</h1>
+                <table class="table">
+                    <thead>
                     <tr>
-                        <th style="width:400px;">time</th>
-                        <th style="width:100px;">action</th>
+                        <th class="col-md-2">Time</th>
+                        <th class="col-md-2">Activity</th>
+                        <th class="col-md-2">IP</th>
+                        <th class="col-md-6">User Agent</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <?php foreach ($histories as $history){ ?>
                     <tr>
                     <td><?=$history['time']?></td>
                     <td><?=$history['action']?></td>
+                        <td><?=isset($history['ip']) ? $history['ip'] : 'N/A'?></td>
+                        <td><?=isset($history['user_agent']) ? $history['user_agent'] : 'N/A'?></td>
                     </tr>
                     <?php } ?>
+                    </tbody>
                 </table>
 			</div>
 		</div>

@@ -18,7 +18,7 @@ class User extends CI_Controller {
 	public function __construct() {
 		
 		parent::__construct();
-session_start();
+        session_start();
 		//$this->load->library(array('session'));
 		$this->load->helper(array('url'));
 		$this->load->model('user_model');
@@ -138,6 +138,7 @@ session_start();
 				// user login ok
 				$this->load->view('header');
 				$this->load->view('user/login/login_success', $data);
+                $this->load->view('redirect');
 				$this->load->view('footer');
 				
 			} else {
@@ -168,15 +169,18 @@ session_start();
 		$data = new stdClass();
 		
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-			
-			// remove session datas
+
+            $this->user_model->save_user_history($this->redisClient, $_SESSION['username'], 'logout');
+
+            // remove session datas
 			foreach ($_SESSION as $key => $value) {
 				unset($_SESSION[$key]);
 			}
-			
+
 			// user logout ok
 			$this->load->view('header');
 			$this->load->view('user/logout/logout_success', $data);
+            $this->load->view('redirect');
 			$this->load->view('footer');
 			
 		} else {
@@ -184,7 +188,7 @@ session_start();
 			// there user was not logged in, we cannot logged him out,
 			// redirect him to site root
 			redirect('/');
-			
+
 		}
 		
 	}
@@ -205,6 +209,17 @@ session_start();
             redirect('/');
 
         }
+    }
+
+    public function index() {
+	    $data = array();
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+            // user logout ok
+            $data['histories'] = $this->user_model->get_user_history($this->redisClient, $_SESSION['username']);
+            $data['username'] = $_SESSION['username'];
+        }
+        $this->load->view('header');
+        $this->load->view('user/index/index', $data);
     }
 	
 }
