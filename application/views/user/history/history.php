@@ -16,8 +16,8 @@
                     <tbody>
                     <?php foreach ($histories as $history){ ?>
                     <tr>
-                    <td><?=$history['time']?></td>
-                    <td><?=$history['action']?></td>
+                    <td><?=isset($history['time']) ? $history['time'] : 'N/A'?></td>
+                    <td><?=isset($history['action']) ? $history['action'] : 'N/A'?></td>
                         <td><?=isset($history['ip']) ? $history['ip'] : 'N/A'?></td>
                         <td><?=isset($history['user_agent']) ? $history['user_agent'] : 'N/A'?></td>
                     </tr>
