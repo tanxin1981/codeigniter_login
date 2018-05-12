@@ -11,9 +11,9 @@
                 <p><img src="http://www.runnymedecollegiate.com/wp-content/uploads/2018/01/welcome-768x296.jpg"</p>
                 <?php else: ?>
                     Please
-                    <a role="button" class="btn btn-primary" href="/register">Signup</a>
+                    <a role="button" class="btn btn-link" href="/register">Signup</a>
                     or
-                    <a role="button" class="btn btn-primary" href="/login">Login</a>
+                    <a role="button" class="btn btn-link" href="/login">Login</a>
                     to enjoy our premium service!
                 <?php endif ?>
             </div>

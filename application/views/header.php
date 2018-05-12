@@ -32,7 +32,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-                    <a class="navbar-brand" href="<?= base_url() ?>"><img src="<?= base_url('assets/img/logo.png')?>" style="height:70px;width:200px;"></img></a>
+                    <a class="navbar-brand" href="<?= base_url() ?>">Tina's Demo</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
