@@ -283,7 +283,7 @@ switch (ENVIRONMENT)
 	define('VIEWPATH', $view_folder);
 
 // Prepend a base path if Predis is not available in your "include_path".
-require_once '/home/tanxin/Codeigniter-login/application/libraries/lib_redis/autoload.php';
+require_once APPPATH.'/libraries/lib_redis/autoload.php';
 
 Predis\Autoloader::register();
 

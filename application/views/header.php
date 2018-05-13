@@ -10,6 +10,7 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="">
 
+    
 	<!-- css -->
 	<link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">

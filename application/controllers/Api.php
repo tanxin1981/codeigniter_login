@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require('/home/tanxin/Codeigniter-login/application/libraries/REST_Controller.php');
+require(APPPATH.'/libraries/REST_Controller.php');
 
 /**
  * Class Api
